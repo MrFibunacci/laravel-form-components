@@ -25,8 +25,8 @@
         }
     ],
     "require": {
-        "php": "8.1.*|8.2.*",
-        "illuminate/contracts": "^9.0|^10.0"
+        "php": "8.1.*|8.2.*|8.3.*",
+        "illuminate/contracts": "^9.0|^10.0|^11.0|^12.0|^13.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
@@ -36,7 +36,7 @@
         "orchestra/testbench": "^7.0|^8.0",
         "phpmd/phpmd": "^2.11",
         "phpstan/phpstan-mockery": "^1.0",
-        "laravel/pint": "^1.1"
+        "laravel/pint": "*"
     },
     "autoload": {
         "psr-4": {
