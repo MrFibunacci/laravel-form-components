@@ -69,4 +69,4 @@ Of course if you did use the Facade way to call the `okipa/laravel-bootstrap-com
 
 ## Undocumented changes
 
-If you see any forgotten and undocumented change, please submit a PR to add them to this upgrade guide.
+If you see any forgotten and undocumented changes, please submit a PR to add them to this upgrade guide.
