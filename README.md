@@ -263,7 +263,7 @@ You'll sometimes need to disable this default bottom margin: you can do this by 
 
 ### Manage label and placeholder
 
-You can define labels on all input components (except for [Radio](#checkbox-switch-and-radio)).
+You can define labels on all input components (except for [Radio](#Checkboxes, Toggle switches and Radios)).
 
 If no custom label is defined, labels will take the `__('validation.attributes.<name>)` default value.
 
