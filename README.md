@@ -1,16 +1,13 @@
 ![Laravel Form Components illustration](/docs/laravel-form-components.png)
 <p style="text-align: center;">
-    <a href="https://github.com/Okipa/laravel-form-components/releases" title="Latest Stable Version">
-        <img src="https://img.shields.io/github/release/Okipa/laravel-form-components.svg?style=flat-square" alt="Latest Stable Version">
+    <a href="https://github.com/MrFibunacci/laravel-form-components/releases" title="Latest Stable Version">
+        <img src="https://img.shields.io/github/release/MrFibunacci/laravel-form-components.svg?style=flat-square" alt="Latest Stable Version">
     </a>
     <a href="https://packagist.org/packages/Okipa/laravel-form-components" title="Total Downloads">
         <img src="https://img.shields.io/packagist/dt/okipa/laravel-form-components.svg?style=flat-square" alt="Total Downloads">
     </a>
-    <a href="https://github.com/Okipa/laravel-form-components/actions" title="Build Status">
-        <img src="https://github.com/Okipa/laravel-form-components/actions/workflows/ci.yml/badge.svg" alt="Build Status">
-    </a>
-    <a href="https://coveralls.io/github/Okipa/laravel-form-components?branch=main" title="Coverage Status">
-        <img src="https://coveralls.io/repos/github/Okipa/laravel-form-components/badge.svg?branch=main" alt="Coverage Status">
+    <a href="https://github.com/MrFibunacci/laravel-form-components/actions" title="Build Status">
+        <img src="https://github.com/MrFibunacci/laravel-form-components/actions/workflows/ci.yml/badge.svg" alt="Build Status">
     </a>
     <a href="/LICENSE.md" title="License: MIT">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
@@ -31,11 +28,12 @@ Found this package helpful? Please consider supporting my work!
 
 ## Compatibility
 
-| Laravel           | Livewire | PHP                | Package |
-|-------------------|---|--------------------|------|
-| ^9.0 &#124; ^10.0 | ^2.0 | 8.1.* &#124; 8.2.* | ^1.2 |
-| ^8.0 &#124; ^9.0  | ^2.0 | ^8.1 &#124; ^8.2   | ^1.1 |
-| ^8.0 &#124; ^9.0  | ^2.0 | ^8.0 &#124; ^8.1   | ^1.0 |
+| Laravel            | Livewire | PHP                | Package |
+|--------------------|----------|--------------------|---------|
+| ^12.0 &#124; ^13.0 | ^2.0     | ^8.3               | ^1.3    |
+| ^9.0 &#124; ^10.0  | ^2.0     | 8.1.* &#124; 8.2.* | ^1.2    |
+| ^8.0 &#124; ^9.0   | ^2.0     | ^8.1 &#124; ^8.2   | ^1.1    |
+| ^8.0 &#124; ^9.0   | ^2.0     | ^8.0 &#124; ^8.1   | ^1.0    |
 
 ## Upgrade guide
 
@@ -43,7 +41,7 @@ Found this package helpful? Please consider supporting my work!
 
 ## Usage example
 
-Just call the components you need in your views and let this package take care of the HTML generation time-consuming part.
+Call the components you need in your views and let this package take care of the HTML generation time-consuming part.
 
 ```blade
 <x:form::form class="row" method="PUT" :action="route('user.update', $user)" :bind="$user">
@@ -67,7 +65,7 @@ Just call the components you need in your views and let this package take care o
 
 And get these components displayed:
 
-![Laravel Form Components screenshot](/docs/screenshot.png)
+![Laravel Form Components screenshot](docs/screenshot.png)
 
 ## Table of Contents
 
@@ -90,7 +88,7 @@ And get these components displayed:
   * [Handle floating label displaying](#handle-floating-label-displaying)
   * [Set addons](#set-addons)
   * [Bind data](#bind-data)
-  * [Set custom value](#set-custom-value)
+  * [Set custom value](#Set-a-custom-value)
   * [Handle validation statuses and errors](#handle-validation-statuses-and-errors)
   * [Add captions](#add-captions)
   * [Activate multilingual mode](#activate-multilingual-mode)
@@ -117,7 +115,7 @@ You can publish the config file with:
 php artisan vendor:publish --tag=form-components:config
 ```
 
-Among its configurations, this package allows you to choose which UI framework will be use.
+Among its configurations, this package allows you to choose which UI framework will be used.
 
 Please note that you'll have to install and configure the UI framework you want to use before using this package.
 
@@ -174,11 +172,11 @@ Set select components in your forms.
 
 Auto generate options by providing an associative value/label array.
 
-HTML select elements natively don't accept placeholder attributes, however the select component allows you to handle a placeholder-like option is prepended to the other ones. This placeholder will behave [as for the other components](#manage-label-and-placeholder).
+HTML select elements natively don't accept placeholder attributes however, the select component allows you to handle a placeholder-like option is prepended to the other ones. This placeholder will behave [as for the other components](#manage-label-and-placeholder).
 
 By default, this select placeholder option is selected, disabled and hidden. However, you'll be able to allow it to be selected in case you need to set a `nullable` field for example. To do that, just add the `allowPlaceholderToBeSelected` attribute to your component.
 
-In multiple mode, this package will take care about converting the name into an array name, so you don't have to add it manually.
+In multiple mode, this package will take care of converting the name into an array name, so you don't have to add it manually.
 
 ```Blade
 @php($options = [1 => 'Laravel', 2 => 'Bootstrap', 3 => 'Tailwind', 4 => 'Livewire'])
@@ -233,7 +231,7 @@ By default, both components will set a base background color if no custom class 
 
 ### Deal with attributes and classes
 
-Provided component are built using [Blade components](https://laravel.com/docs/blade#components).
+Provided components are built using [Blade components](https://laravel.com/docs/blade#components).
 
 Following how Blade components work, you can set any HTML attributes and classes:
 * Attributes will replace default ones
@@ -241,7 +239,7 @@ Following how Blade components work, you can set any HTML attributes and classes
 
 ## Set id
 
-Define components ids as you would do for any HTML element.
+Define component ids as you would do for any HTML element.
 
 If no custom id is set, an id will be generated using the kebab cased `<type>-<name>` values.
 
@@ -251,11 +249,11 @@ If no custom id is set, an id will be generated using the kebab cased `<type>-<n
 <x:form::textarea id="custom-id" name="first_name"/> {{-- Default id: `textarea-first-name` --}}
 ```
 
-### Enable or disable inputs margin bottom
+### Enable or disable input margin bottom
 
-By default, all input components will declare a bottom margin in order to correctly position themselves in a form.
+By default, all input components will declare a bottom margin to correctly position themselves in a form.
 
-You'll sometimes need to disable this default bottom margin: you'll can do this by setting the `marginBottom` attribute to `false`.
+You'll sometimes need to disable this default bottom margin: you can do this by setting the `marginBottom` attribute to `false`.
 
 ```Blade
 <x:form::input name="first_name"/> {{-- Will declare a bottom margin --}}
@@ -295,7 +293,7 @@ You will be able to override this global behaviour at form level for all contain
 </x:form::form>
 ```
 
-Finally, you'll also can override all other defined behaviour on components themselves.
+Finally, you also can override all other defined behaviour on components themselves.
 
 ```Blade
     <x:form::input name="first_name" :floatingLabel="true"/>
@@ -310,11 +308,11 @@ You can define `prepend` and `append` HTML addons on input and textarea componen
     <x:form::input name="search" append="<i class="fas fa-search fa-fw"></i>"/>
 ```
 
-Note: you may use HTML directly instead of components for complex addon's management.
+> **Note**: You may use HTML directly instead of components for complex addon's management.
 
 ### Bind data
 
-You can bind Eloquent Models, objects, collections or arrays in order to autofill bound components values.
+You can bind Eloquent Models, objects, collections or arrays to autofill bound components values.
 
 Binding data on the form component will trigger the binding of all of its contained components.
 
@@ -322,7 +320,7 @@ You can bind data directly on a component and override the form binding.
 
 In case of validation error, components will be repopulated by old values that will override bound values.
 
-For specific use case, you also can use the `@bind($boundDataBatch)` and the `@endbind` Blade directives to bind a group of components.
+For a specific use case, you also can use the `@bind($boundDataBatch)` and the `@endbind` Blade directives to bind a group of components.
 
 ```blade
 @php
@@ -339,7 +337,7 @@ For specific use case, you also can use the `@bind($boundDataBatch)` and the `@e
 </x:form::form>
 ```
 
-### Set custom value
+### Set a custom value
 
 Data binding can be overridden by setting custom values on components.
 
@@ -375,7 +373,7 @@ You can control this behaviour at different levels:
 </x:form::form>
 ```
 
-You also can customize the error bag that should be used to determine components success/error statuses and error messages on form components.
+You also can customize the error bag that should be used to determine component success/error statuses and error messages on form components.
 
 ```blade
 <x:form::form errorBag="form_error_bag"> {{-- Error bag for all components within the form --}}
@@ -390,7 +388,7 @@ You also can customize the error bag that should be used to determine components
 
 ### Add captions
 
-Help users and display additional instructions under you components by adding captions.
+Help users and display additional instructions under your components by adding captions.
 
 ```Blade
     <x:form::input name="name" caption="Please fill this input with your full name."/>
@@ -412,7 +410,7 @@ Activate multilingual mode on `input` and `textarea` components to benefit from 
 
 Form and input components are Livewire-compatible.
 
-Instead of defining a `wire:model` HTML attribute on each component you want to wire as you would do without this package, here you'll just have to define a `wire="<optional-modifier>"` HTML attribute to make this work.
+Instead of defining a `wire:model` HTML attribute on each component you want to wire as you would do without this package, here you'll have to define a `wire="<optional-modifier>"` HTML attribute to make this work.
 
 Each wired input component will use its own `name` attribute and convert it to a valid `wire:model="<name>"` one.
 
@@ -435,7 +433,7 @@ Following the same logic, you also can wire input components directly from the f
 </x:form::form>
 ```
 
-For specific use case, you also can use the `@wire($modifier)` and the `@endwire` Blade directives to wire a group of components with a specific Livewire modifier.
+For a specific use case, you also can use the `@wire($modifier)` and the `@endwire` Blade directives to wire a group of components with a specific Livewire modifier.
 
 ```Blade
 <x-form::form wire:submit.prevent="submit" wire="lazy">
