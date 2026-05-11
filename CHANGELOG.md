@@ -2,6 +2,13 @@
 
 All notable changes to this package will be documented in this file.
 
+## [1.3]()
+
+2026-05-11
+
+* Added Laravel 12 & 13 support
+* Added PHP 8.3 support
+
 ## [1.2.0](https://github.com/Okipa/laravel-form-components/compare/1.1.0...1.2.0)
 
 2023-01-21
