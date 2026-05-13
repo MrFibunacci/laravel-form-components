@@ -1,7 +1,6 @@
 {
     "preset": "laravel",
     "rules": {
-        "Laravel/laravel_phpdoc_alignment": false,
         "array_push": true,
         "assign_null_coalescing_to_coalesce_equal": true,
         "combine_consecutive_issets": true,
