@@ -47,4 +47,20 @@ class SelectFloatingLabelTest extends TestCase
         $inputPosition = mb_strrpos($html, '<select');
         self::assertLessThan($labelPosition, $inputPosition);
     }
+
+    /** @test */
+    public function it_can_set_select_floating_label_text(): void
+    {
+        config()->set('form-components.floating_label', true);
+        $html = $this->renderComponent(Select::class, [
+            'name' => 'hobby_id',
+            'options' => [1 => 'Music', 2 => 'Travels', 3 => 'Movies', 4 => 'Literature'],
+            'selected' => 1,
+        ]);
+
+//        dump($html);
+
+        self::assertStringContainsString('class="form-label">validation.attributes.hobby_id</label>', $html);
+        self::assertStringNotContainsString('class="form-label">Literature</label>', $html);
+    }
 }

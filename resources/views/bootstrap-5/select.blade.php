@@ -32,8 +32,8 @@
             @if($placeholder)
                 <option value="" selected{!! $allowPlaceholderToBeSelected ? null : ' disabled hidden' !!}>{{ $placeholder }}</option>
             @endif
-            @foreach($options as $value => $label)
-                <option value="{{ $value }}"{!! $isSelected($name, $value) && ! $isWired ? ' selected="selected"' : null !!}>{{ $label }}</option>
+            @foreach($options as $value => $optionLabel)
+                <option value="{{ $value }}"{!! $isSelected($name, $value) && ! $isWired ? ' selected="selected"' : null !!}>{{ $optionLabel }}</option>
             @endforeach
         </select>
         @if(! $prepend && ! $append && $displayFloatingLabel)
