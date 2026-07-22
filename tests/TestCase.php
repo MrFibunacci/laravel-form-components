@@ -5,6 +5,7 @@ namespace Okipa\LaravelFormComponents\Tests;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Illuminate\Testing\Constraints\SeeInOrder;
+use Illuminate\View\Component;
 use Okipa\LaravelFormComponents\LaravelFormComponentsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -47,7 +48,7 @@ class TestCase extends Orchestra
         array $viewData = [],
         array $attributes = []
     ): string {
-        /** @var \Illuminate\View\Component $input */
+        /** @var Component $input */
         $input = app($componentClass, $componentData);
         $input->withAttributes($attributes);
 

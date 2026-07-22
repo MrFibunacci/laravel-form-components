@@ -4,7 +4,7 @@ namespace Okipa\LaravelFormComponents\Components\Traits;
 
 trait HasName
 {
-    protected function getNameTranslationFromValidation(string $locale = null): string
+    protected function getNameTranslationFromValidation(null|string $locale = null): string
     {
         return __('validation.attributes.' . $this->getNameWithoutArrayNotation())
             . ($locale ? ' (' . mb_strtoupper($locale) . ')' : '');

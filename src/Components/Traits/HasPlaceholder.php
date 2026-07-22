@@ -4,7 +4,7 @@ namespace Okipa\LaravelFormComponents\Components\Traits;
 
 trait HasPlaceholder
 {
-    public function getPlaceholder(string|null $label, string $locale = null): string|null
+    public function getPlaceholder(null|string $label, null|string $locale = null): null|string
     {
         if ($this->placeholder === false) {
             return null;

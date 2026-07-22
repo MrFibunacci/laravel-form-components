@@ -58,8 +58,6 @@ class SelectFloatingLabelTest extends TestCase
             'selected' => 1,
         ]);
 
-//        dump($html);
-
         self::assertStringContainsString('class="form-label">validation.attributes.hobby_id</label>', $html);
         self::assertStringNotContainsString('class="form-label">Literature</label>', $html);
     }
