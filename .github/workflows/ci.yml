@@ -2,11 +2,11 @@ name: CI
 
 on:
   label:
-    types:
-      - created
+    types: [ "created" ]
     push:
-      branches:
-        - main
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
 
 jobs:
   build:
