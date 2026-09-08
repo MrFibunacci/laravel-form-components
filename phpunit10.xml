@@ -18,8 +18,8 @@
     verbose="true"
     printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer">
     <testsuites>
-        <testsuite name="Unit">
-            <directory>tests/Unit</directory>
+        <testsuite name="Test Suite">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
     <coverage>
