@@ -1,4 +1,4 @@
-name: CI
+name: C
 
 on:
   label:
@@ -7,6 +7,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+env:
+  LATEST_PHP_VERSION: '8.4'
+  LATEST_LARAVEL_VERSION: '13.*'
 
 jobs:
   build:
@@ -64,26 +68,26 @@ jobs:
       # Lower PHP and laravel versions.
 
       - name: PHPUnit without code coverage
-        if: matrix.php != '8.4' || matrix.laravel != '10.*'
+        if: matrix.php != env.LATEST_PHP_VERSION || matrix.laravel != env.LATEST_LARAVEL_VERSION
         run: vendor/bin/phpunit --no-coverage
 
       # Last PHP and laravel versions.
 
       - name: Code analysis
-        if: matrix.php == '8.4' && matrix.laravel == '13.*'
+        if: matrix.php == env.LATEST_PHP_VERSION && matrix.laravel == env.LATEST_LARAVEL_VERSION
         run: |
           vendor/bin/pint --test -vvv
           vendor/bin/phpmd config,src,tests text phpmd.xml
           vendor/bin/phpstan analyse
 
       - name: PHPUnit with code coverage
-        if: matrix.php == '8.4' && matrix.laravel == '13.*'
+        if: matrix.php == env.LATEST_PHP_VERSION && matrix.laravel == env.LATEST_LARAVEL_VERSION
         run: |
           mkdir -p build/logs
           vendor/bin/phpunit --coverage-text --coverage-clover build/logs/clover.xml
 
       - name: Code coverage upload to Coveralls
-        if: env.COVERALLS_REPO_TOKEN && matrix.php == '8.4' && matrix.laravel == '13.*'
+        if: env.COVERALLS_REPO_TOKEN && matrix.php == env.LATEST_PHP_VERSION && matrix.laravel == env.LATEST_LARAVEL_VERSION
         env:
           COVERALLS_RUN_LOCALLY: 1
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
