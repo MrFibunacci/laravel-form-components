@@ -65,10 +65,16 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --prefer-dist --no-interaction
 
+      # Run older testbench versions with PHPUnit 10 compatible config file
+
+      - name: PHPUnit 10 without code coverage
+        if: matrix.testbench == '8.*'
+        run: vendor/bin/phpunit --no-coverage --configuration phpunit10.xml 
+
       # Lower PHP and laravel versions.
 
       - name: PHPUnit without code coverage
-        if: matrix.php != env.LATEST_PHP_VERSION || matrix.laravel != env.LATEST_LARAVEL_VERSION
+        if: matrix.testbench != '8.*' && (matrix.php != env.LATEST_PHP_VERSION || matrix.laravel != env.LATEST_LARAVEL_VERSION)
         run: vendor/bin/phpunit --no-coverage
 
       # Last PHP and laravel versions.
